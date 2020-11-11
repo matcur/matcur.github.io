@@ -50,17 +50,23 @@ a {
           align-items: center;
 }
 
-.header .container .head-nav-bar {
+.head-nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.header .container .head-nav-bar__item {
+.head-nav-bar__item {
   margin: auto 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
-.header .container .sign-up {
+.head-nav-bar__item:hover {
+  color: #020101;
+}
+
+.sign-up {
   padding: 10px 40px;
   border: 1px solid #fff;
   border-radius: 24px;
@@ -69,7 +75,7 @@ a {
   transition: 0.2s;
 }
 
-.header .container .sign-up:hover {
+.sign-up:hover {
   background: #fff;
   color: #854cc5;
 }
@@ -81,7 +87,7 @@ a {
 .first-section {
   color: #fff;
   background: #854cc5;
-  height: 1000px;
+  height: 140vh;
 }
 
 .first-section .phone-img {
@@ -298,11 +304,6 @@ a {
   height: 100%;
 }
 
-.fourth-section .container .wrapper .text .title {
-  color: #3023AE;
-  font-size: 32px;
-}
-
 .fourth-section .container .wrapper .text .description {
   margin-top: 20px;
   color: #5d6b8f;
@@ -311,6 +312,7 @@ a {
 
 .achievements {
   margin-top: 30px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .achievements .achievement {
@@ -326,6 +328,16 @@ a {
   width: 40px;
   height: 40px;
   margin-right: 15px;
+}
+
+.achievements .achievement .about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .achievements .achievement .about .title {
@@ -355,6 +367,10 @@ a {
   height: 100%;
 }
 
+.fifth-section .container .wrapper {
+  height: 60%;
+}
+
 .fifth-section .container .wrapper .title {
   width: 100%;
   font-family: Montserrat;
@@ -380,7 +396,13 @@ a {
   width: 100%;
 }
 
-.fifth-section .container .wrapper .brend-imgs .brend-img {
+.fifth-section .container .wrapper .brend-imgs .brend-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 120px;
   margin-right: 60px;
   margin-bottom: 40px;
@@ -455,13 +477,19 @@ a {
   border-radius: 3px;
 }
 
-.premium-plan {
+.plan.premium-plan {
   background: -webkit-gradient(linear, left top, left bottom, from(#3023AE), to(#C86DD7));
   background: linear-gradient(#3023AE, #C86DD7);
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
-.premium-plan .info {
+.plan.premium-plan .info {
   color: #fff;
+}
+
+.plan.premium-plan .info .info {
+  color: #C86DD7;
 }
 
 .plan {
@@ -498,12 +526,10 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-size: 14px;
-  font-family: "PT Serif";
   font-weight: 400;
 }
 
 .plan .info .name {
-  font-family: Montserrat;
   color: #5d6b8f;
   font-size: 12px;
   font-weight: normal;
@@ -528,7 +554,7 @@ a {
   text-align: center;
 }
 
-.plan .choose-plan-btn {
+.choose-plan-btn {
   width: 160px;
   height: 45px;
   background: #fff;
@@ -536,6 +562,27 @@ a {
   font-weight: 600;
   border-radius: 2px;
   border: 3px solid #c7ccd9;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.choose-plan-btn:hover {
+  border: 3px solid #C86DD7;
+  background: #C86DD7;
+  color: #fff;
+}
+
+.premium-plan .choose-plan-btn {
+  background: transparent;
+  color: #fff;
+  border: 3px solid #ad48ff;
+}
+
+.premium-plan .choose-plan-btn:hover {
+  border: 3px solid #ccc;
+  background: #fff;
+  color: #C86DD7;
 }
 
 .footer {
@@ -568,7 +615,16 @@ a {
   margin-top: 45px;
 }
 
-.footer .container .left-column {
+.footer a {
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.footer a:hover {
+  color: #313131;
+}
+
+.left-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -581,42 +637,20 @@ a {
           justify-content: stretch;
 }
 
-.footer .container .left-column .circle {
-  border-color: #5d6b8f;
-}
-
-.footer .container .left-column .cities {
+.left-column .cities {
   margin-top: 30px;
 }
 
-.footer .container .left-column .cities .city .name {
-  color: #2c45aa;
-}
-
-.footer .container .left-column .cities .city .addresses {
+.left-column .cities .city .addresses {
   margin-top: 20px;
   font-family: "PT Serif";
 }
 
-.footer .container .middle-column {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.footer .container .middle-column .title {
-  color: #2c45aa;
+.middle-column .title {
   font-weight: 700;
 }
 
-.footer .container .middle-column .social-links {
+.middle-column .social-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -624,14 +658,21 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 20px;
 }
 
-.footer .container .middle-column .social-links .link {
+.middle-column .social-links .link-wrapper {
   padding-top: 5px;
 }
 
-.footer .container .right-column {
+.middle-column .social-links .link {
+  padding-top: 5px;
+}
+
+.right-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -644,8 +685,7 @@ a {
           justify-content: center;
 }
 
-.footer .container .right-column .title {
+.right-column .title {
   font-weight: 700;
-  color: #5d6b8f;
 }
 /*# sourceMappingURL=style.css.map */

@@ -15,38 +15,42 @@
         margin-top: 50px
       .right-column
         margin-top: 45px
-    .left-column
-      display: flex
-      flex-direction: column
-      justify-content: stretch
-      .circle
-        border-color: $gray
-      .cities
-        margin-top: 30px
-        .city
-          .name
-            color: $dark-gray
-          .addresses
-            margin-top: 20px
-            font-family: "PT Serif"
-    .middle-column
-      display: flex
-      flex-direction: column
-      justify-content: center
-      .title
-        color: $dark-gray
-        font-weight: 700
-      .social-links
-        display: flex
-        flex-direction: column
+
+.footer
+  a
+    transition: .2s
+    &:hover
+      color: #313131
+
+.left-column
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  .cities
+    margin-top: 30px
+    .city
+      .name
+      .addresses
         margin-top: 20px
-        .link
-          padding-top: 5px
-    .right-column
-      display: flex
-      flex-direction: column
-      justify-content: center
-      .title
-        font-weight: 700
-        color: $gray
+        font-family: "PT Serif"
+
+.middle-column
+  .title
+    font-weight: 700
+  .social-links
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-top: 20px
+    .link-wrapper
+      padding-top: 5px
+    .link
+      padding-top: 5px
+      
+.right-column
+  display: flex
+  flex-direction: column
+  justify-content: center
+  .title
+    font-weight: 700
 
