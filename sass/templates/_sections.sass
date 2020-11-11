@@ -4,7 +4,7 @@
 .first-section
   color: #fff
   background: $light-violet
-  height: 1000px
+  height: 140vh
   .phone-img
     position: absolute
     bottom: 0
@@ -23,49 +23,54 @@
         margin-top: 30px
         font-size: 16px
         font-weight: 400
+
+
 .second-section
   height: 380px
   .container
     height: 100%
-    .steps
-      display: flex
-      position: relative
-      top: -50%
-      padding: 90px 50px 50px 50px
-      background: #fff
-      border-radius: 3px
-      border-bottom: 3px solid $dark-violet
-      .step
-        &:not(:last-child)
-          margin-right: 40px
-        .step-img
-          width: 40px
-          height: 40px
-        .title
-          width: 190px
-          margin-top: 25px
-          color: $light-violet
-          font-size: 20px
-        .description
-          margin-top: 25px
-          font-size: 13px
-          line-height: 24px
-          color: $gray
-    .about
-      position: relative
-      display: flex
-      top: -25%
-      padding: 0 50px
-      .first-paragraph
-        width: 310px
-        margin-right: 120px
-        font-size: 20px
-        color: $light-violet
-        word-break: break-all
-      .second-paragraph
-        font-size: 15px
-        color: $gray
-        word-break: break-all
+
+.steps
+  display: flex
+  position: relative
+  top: -50%
+  padding: 90px 50px 50px 50px
+  background: #fff
+  border-radius: 3px
+  border-bottom: 3px solid $dark-violet
+  .step
+    &:not(:last-child)
+      margin-right: 40px
+    .step-img
+      width: 40px
+      height: 40px
+    .title
+      width: 190px
+      margin-top: 25px
+      color: $light-violet
+      font-size: 20px
+    .description
+      margin-top: 25px
+      font-size: 13px
+      line-height: 24px
+      color: $gray
+  
+.about
+  position: relative
+  display: flex
+  top: -25%
+  padding: 0 50px
+  .first-paragraph
+    width: 310px
+    margin-right: 120px
+    font-size: 20px
+    color: $light-violet
+    word-break: break-all
+  .second-paragraph
+    font-size: 15px
+    color: $gray
+    word-break: break-all
+
 
 .third-section
   background: $light-blue
@@ -82,35 +87,38 @@
       align-items: center
       justify-content: space-around
       height: 70%
-      .video
-        display: flex
-        flex-direction: column
-        align-items: center
-        .play
-          display: block
-          width: 75px
-          height: 75px
-          margin-bottom: 40px
-          border-radius: 50%
-          transition: 0.2s
-          background-image: url('//d9hhrg4mnvzow.cloudfront.net/templates.unbounce.com/o-saas/59cb8de5-o-saas-play-button-up.svg')
-          cursor: pointer
-          &:hover
-            background-image: url('//d9hhrg4mnvzow.cloudfront.net/templates.unbounce.com/o-saas/45f99051-o-saas-play-button-hover.svg')
-        .watch-video
-          color: $gray
-          text-transform: uppercase
-      .title
-        color: $dark-violet
-        font-size: 32px
-      .desctiption
-        width: 390px
-        font-family: "PT Serif"
-        color: $dark-gray
-        font-size: 18px
-        font-weight: 400
-        text-align: center
-        line-height: 24px
+      
+.video
+  display: flex
+  flex-direction: column
+  align-items: center
+  .play
+    display: block
+    width: 75px
+    height: 75px
+    margin-bottom: 40px
+    border-radius: 50%
+    transition: 0.2s
+    background-image: url('//d9hhrg4mnvzow.cloudfront.net/templates.unbounce.com/o-saas/59cb8de5-o-saas-play-button-up.svg')
+    cursor: pointer
+    &:hover
+      background-image: url('//d9hhrg4mnvzow.cloudfront.net/templates.unbounce.com/o-saas/45f99051-o-saas-play-button-hover.svg')
+  .watch-video
+    color: $gray
+    text-transform: uppercase
+
+.title
+  color: $dark-violet
+  font-size: 32px
+.desctiption
+  width: 390px
+  font-family: "PT Serif"
+  color: $dark-gray
+  font-size: 18px
+  font-weight: 400
+  text-align: center
+  line-height: 24px
+
 
 .fourth-section
   height: 750px
@@ -126,28 +134,30 @@
         margin-right: 100px
       .text
         height: 100%
-        .title
-          color: $dark-violet
-          font-size: 32px
         .description
           margin-top: 20px
           color: $gray
           font-size: 14px
-        .achievements
-          margin-top: 30px
-          .achievement
-            display: flex
-            align-items: start
-            .achievement-img
-              width: 40px
-              height: 40px
-              margin-right: 15px
-            .about
-              .title
-                padding-top: 8px
-                font-size: 20px
-              .description
-                font-size: 13px
+
+.achievements
+  margin-top: 30px
+  font-family: 'Montserrat', sans-serif
+  .achievement
+    display: flex
+    align-items: start
+    .achievement-img
+      width: 40px
+      height: 40px
+      margin-right: 15px
+    .about
+      display: flex
+      flex-direction: column
+      .title
+        padding-top: 8px
+        font-size: 20px
+      .description
+        font-size: 13px
+
 
 .fifth-section
   height: 770px
@@ -157,7 +167,8 @@
     align-items: center
     justify-content: center
     height: 100%
-    .wrapper  
+    .wrapper
+      height: 60%
       .title
         width: 100%
         font-family: Montserrat
@@ -172,95 +183,120 @@
         margin-top: 50px
         .break  
           width: 100%
-        .brend-img
+        .brend-link
+          display: flex
+          align-items: center
           width: 120px
           margin-right: 60px
           margin-bottom: 40px
+
 
 .sixth-section
   height: 830px
   .container
     height: 100%
-    .pricing-plan
+
+.pricing-plan
+  position: relative
+  top: -30%
+  width: 100%
+  background: #fff
+  .wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding-top: 80px
+    .title
       position: relative
-      top: -30%
-      width: 100%
+      font-size: 48px
+      color: $dark-violet
+    .description
+      position: relative
+      margin-top: 15px
+      font-family: "PT Serif"
+      font-size: 18px
+      color: $gray
+      font-weight: normal
+      text-align: center
+
+.plans
+  position: relative
+  margin-top: 120px
+  display: flex
+  justify-content: space-between
+  width: 100%
+  .plan-wrapper
+    position: relative
+    padding: 5px
+    width: 280px
+    height: 615px
+    background: -webkit-linear-gradient(#3023AE, #C86DD7)
+    border-radius: 3px
+    
+.plan.premium-plan
+  background: linear-gradient(#3023AE, #C86DD7)
+  transition: .2s
+  .info
+    color: #fff
+    .info 
+      color: #C86DD7
+
+.plan
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  padding-top: 40px
+  width: 100%
+  height: calc( 100% - 40px )
+  color: $gray
+  background: #fff
+  border-radius: 3px
+  .info
+    display: flex
+    flex-direction: column
+    align-items: center
+    font-size: 14px
+    font-weight: 400
+    .name
+      color: $gray
+      font-size: 12px
+      font-weight: normal
+      text-align: center
+    .load-circle
+      margin-top: 30px
+    .price
+      margin-top: 45px
+      text-align: center
+      span
+        font-size: 38px
+    .description
+      margin-top: 25px
+      text-align: center
+
+.choose-plan-btn
+  width: 160px
+  height: 45px
+  background: #fff
+  color: $dark-purple
+  font-weight: 600
+  border-radius: 2px
+  border: 3px solid $light-gray
+  cursor: pointer
+  transition: .2s
+  &:hover
+    border: 3px solid #C86DD7
+    background: #C86DD7
+    color: #fff
+
+.premium-plan
+  .choose-plan-btn
+    background: transparent
+    color: #fff
+    border: 3px solid #ad48ff
+    &:hover
+      border: 3px solid #ccc
       background: #fff
-      .wrapper
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center
-        padding-top: 80px
-        .title
-          position: relative
-          font-size: 48px
-          color: $dark-violet
-        .description
-          position: relative
-          margin-top: 15px
-          font-family: "PT Serif"
-          font-size: 18px
-          color: $gray
-          font-weight: normal
-          text-align: center
-      .plans
-        position: relative
-        margin-top: 120px
-        display: flex
-        justify-content: space-between
-        width: 100%
-        .plan-wrapper
-          position: relative
-          padding: 5px
-          width: 280px
-          height: 615px
-          background: -webkit-linear-gradient(#3023AE, #C86DD7)
-          border-radius: 3px
-          .plan.premium-plan
-            background: linear-gradient(#3023AE, #C86DD7)
-            .info
-              color: #fff
-          .plan
-            position: relative
-            display: flex
-            flex-direction: column
-            justify-content: space-around
-            align-items: center
-            padding-top: 40px
-            width: 100%
-            height: calc( 100% - 40px )
-            color: $gray
-            background: #fff
-            border-radius: 3px
-            .info
-              display: flex
-              flex-direction: column
-              align-items: center
-              font-size: 14px
-              font-family: "PT Serif"
-              font-weight: 400
-              .name
-                font-family: Montserrat
-                color: $gray
-                font-size: 12px
-                font-weight: normal
-                text-align: center
-              .load-circle
-                margin-top: 30px
-              .price
-                margin-top: 45px
-                text-align: center
-                span
-                  font-size: 38px
-              .description
-                margin-top: 25px
-                text-align: center
-            .choose-plan-btn
-              width: 160px
-              height: 45px
-              background: #fff
-              color: $dark-purple
-              font-weight: 600
-              border-radius: 2px
-              border: 3px solid $light-gray
+      color: #C86DD7
