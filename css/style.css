@@ -120,7 +120,7 @@ a {
   height: 100%;
 }
 
-.second-section .container .steps {
+.steps {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,30 +132,30 @@ a {
   border-bottom: 3px solid #3023AE;
 }
 
-.second-section .container .steps .step:not(:last-child) {
+.steps .step:not(:last-child) {
   margin-right: 40px;
 }
 
-.second-section .container .steps .step .step-img {
+.steps .step .step-img {
   width: 40px;
   height: 40px;
 }
 
-.second-section .container .steps .step .title {
+.steps .step .title {
   width: 190px;
   margin-top: 25px;
   color: #854cc5;
   font-size: 20px;
 }
 
-.second-section .container .steps .step .description {
+.steps .step .description {
   margin-top: 25px;
   font-size: 13px;
   line-height: 24px;
   color: #5d6b8f;
 }
 
-.second-section .container .about {
+.about {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -164,7 +164,7 @@ a {
   padding: 0 50px;
 }
 
-.second-section .container .about .first-paragraph {
+.about .first-paragraph {
   width: 310px;
   margin-right: 120px;
   font-size: 20px;
@@ -172,7 +172,7 @@ a {
   word-break: break-all;
 }
 
-.second-section .container .about .second-paragraph {
+.about .second-paragraph {
   font-size: 15px;
   color: #5d6b8f;
   word-break: break-all;
@@ -216,7 +216,7 @@ a {
   height: 70%;
 }
 
-.third-section .container .wrapper .video {
+.video {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -229,7 +229,7 @@ a {
           align-items: center;
 }
 
-.third-section .container .wrapper .video .play {
+.video .play {
   display: block;
   width: 75px;
   height: 75px;
@@ -241,21 +241,21 @@ a {
   cursor: pointer;
 }
 
-.third-section .container .wrapper .video .play:hover {
+.video .play:hover {
   background-image: url("//d9hhrg4mnvzow.cloudfront.net/templates.unbounce.com/o-saas/45f99051-o-saas-play-button-hover.svg");
 }
 
-.third-section .container .wrapper .video .watch-video {
+.video .watch-video {
   color: #5d6b8f;
   text-transform: uppercase;
 }
 
-.third-section .container .wrapper .title {
+.title {
   color: #3023AE;
   font-size: 32px;
 }
 
-.third-section .container .wrapper .desctiption {
+.desctiption {
   width: 390px;
   font-family: "PT Serif";
   color: #2c45aa;
@@ -309,11 +309,11 @@ a {
   font-size: 14px;
 }
 
-.fourth-section .container .wrapper .text .achievements {
+.achievements {
   margin-top: 30px;
 }
 
-.fourth-section .container .wrapper .text .achievements .achievement {
+.achievements .achievement {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -322,18 +322,18 @@ a {
           align-items: start;
 }
 
-.fourth-section .container .wrapper .text .achievements .achievement .achievement-img {
+.achievements .achievement .achievement-img {
   width: 40px;
   height: 40px;
   margin-right: 15px;
 }
 
-.fourth-section .container .wrapper .text .achievements .achievement .about .title {
+.achievements .achievement .about .title {
   padding-top: 8px;
   font-size: 20px;
 }
 
-.fourth-section .container .wrapper .text .achievements .achievement .about .description {
+.achievements .achievement .about .description {
   font-size: 13px;
 }
 
@@ -394,14 +394,14 @@ a {
   height: 100%;
 }
 
-.sixth-section .container .pricing-plan {
+.pricing-plan {
   position: relative;
   top: -30%;
   width: 100%;
   background: #fff;
 }
 
-.sixth-section .container .pricing-plan .wrapper {
+.pricing-plan .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -418,13 +418,13 @@ a {
   padding-top: 80px;
 }
 
-.sixth-section .container .pricing-plan .wrapper .title {
+.pricing-plan .wrapper .title {
   position: relative;
   font-size: 48px;
   color: #3023AE;
 }
 
-.sixth-section .container .pricing-plan .wrapper .description {
+.pricing-plan .wrapper .description {
   position: relative;
   margin-top: 15px;
   font-family: "PT Serif";
@@ -434,7 +434,7 @@ a {
   text-align: center;
 }
 
-.sixth-section .container .pricing-plan .plans {
+.plans {
   position: relative;
   margin-top: 120px;
   display: -webkit-box;
@@ -446,7 +446,7 @@ a {
   width: 100%;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper {
+.plans .plan-wrapper {
   position: relative;
   padding: 5px;
   width: 280px;
@@ -455,16 +455,16 @@ a {
   border-radius: 3px;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan.premium-plan {
+.premium-plan {
   background: -webkit-gradient(linear, left top, left bottom, from(#3023AE), to(#C86DD7));
   background: linear-gradient(#3023AE, #C86DD7);
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan.premium-plan .info {
+.premium-plan .info {
   color: #fff;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan {
+.plan {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,7 +486,7 @@ a {
   border-radius: 3px;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info {
+.plan .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -502,7 +502,7 @@ a {
   font-weight: 400;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info .name {
+.plan .info .name {
   font-family: Montserrat;
   color: #5d6b8f;
   font-size: 12px;
@@ -510,25 +510,25 @@ a {
   text-align: center;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info .load-circle {
+.plan .info .load-circle {
   margin-top: 30px;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info .price {
+.plan .info .price {
   margin-top: 45px;
   text-align: center;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info .price span {
+.plan .info .price span {
   font-size: 38px;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .info .description {
+.plan .info .description {
   margin-top: 25px;
   text-align: center;
 }
 
-.sixth-section .container .pricing-plan .plans .plan-wrapper .plan .choose-plan-btn {
+.plan .choose-plan-btn {
   width: 160px;
   height: 45px;
   background: #fff;
