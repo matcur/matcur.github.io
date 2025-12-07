@@ -1228,22 +1228,16 @@ for (let i = 0; i <= lastRowIndex; i++) {
         row.push(j);
     }
 }
+
 // place army
 globalHexes.push({ type: "stack", row: 0, column: 0, stack: ally().army[0] });
-globalHexes.push({ type: "stack", row: 1, column: 12, stack: foe().army[0] });
-// globalHexes.push({type: "stack", row: 1, column: 1, stack: foe().army[0]})
-// globalHexes.push({type: "stack", row: 3, column: 4, stack: foe().army[1]})
-// grid[2][3] = {
-//   "type": "fireWall",
-//   "state": "fires",
-//   "animation": {
-//     "duration": 60,
-//     "frameCount": 6,
-//     "frame": 0,
-//     "timer": 0,
-//     "runout": false
-//   }
-// }
+globalHexes.push({ type: "stack", row: 2, column: 0, stack: ally().army[1] });
+globalHexes.push({ type: "stack", row: 4, column: 0, stack: ally().army[2] });
+globalHexes.push({ type: "stack", row: 6, column: 0, stack: ally().army[3] });
+globalHexes.push({ type: "stack", row: 0, column: lastColumnIndex, stack: foe().army[0] });
+globalHexes.push({type: "stack", row: 2, column: lastColumnIndex, stack: foe().army[1]});
+globalHexes.push({type: "stack", row: 4, column: lastColumnIndex, stack: foe().army[2]});
+globalHexes.push({type: "stack", row: 6, column: lastColumnIndex, stack: foe().army[3]});
 // endregion
 function effectIn(stack, type) {
     if (!stack) {
