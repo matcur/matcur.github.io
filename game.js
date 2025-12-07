@@ -1089,7 +1089,10 @@ function makeAlly() {
             { type: "air", level: 3 },
         ],
         army: [
-            stackOf("dendroid", 12),
+            stackOf("dendroid", 4),
+            stackOf("dendroid", 5),
+            stackOf("archer", 6),
+            stackOf("dragon", 6),
         ],
         spells: [
             "berserk",
@@ -1110,8 +1113,9 @@ function makeFoe() {
         },
         army: [
             stack,
-            // stackOf("zombie", 15),
-            // stackOf("dragon", 14),
+            stackOf("dendroid", 2),
+            stackOf("archer", 2),
+            stackOf("dragon", 4),
         ],
         skills: [],
         spells: ["arrow", "slow"],
