@@ -21,8 +21,13 @@ body{
     align-items:center;
 }
 
+.completed{
+    text-decoration: line-through;
+    opacity:0.6;
+}
+
 button{
-    margin-left:5px;
+    margin-left:4px;
 }
 </style>
 </head>
@@ -65,7 +70,8 @@ function addTask(){
         id: Date.now(),
         text,
         day,
-        moves:0
+        moves:0,
+        completed:false
     })
 
     taskInput.value = ""
@@ -112,6 +118,55 @@ function editTask(id){
     render()
 }
 
+function toggleComplete(id){
+
+    const task = tasks.find(t => t.id === id)
+    task.completed = !task.completed
+
+    save()
+    render()
+}
+
+function moveUp(id){
+
+    const day = picker.value
+    const dayTasks = tasks.filter(t => t.day === day)
+
+    const index = dayTasks.findIndex(t => t.id === id)
+
+    if(index <= 0) return
+
+    const current = tasks.indexOf(dayTasks[index])
+    const above = tasks.indexOf(dayTasks[index-1])
+
+    const temp = tasks[current]
+    tasks[current] = tasks[above]
+    tasks[above] = temp
+
+    save()
+    render()
+}
+
+function moveDown(id){
+
+    const day = picker.value
+    const dayTasks = tasks.filter(t => t.day === day)
+
+    const index = dayTasks.findIndex(t => t.id === id)
+
+    if(index === -1 || index >= dayTasks.length-1) return
+
+    const current = tasks.indexOf(dayTasks[index])
+    const below = tasks.indexOf(dayTasks[index+1])
+
+    const temp = tasks[current]
+    tasks[current] = tasks[below]
+    tasks[below] = temp
+
+    save()
+    render()
+}
+
 function render(){
 
     const day = picker.value
@@ -119,38 +174,45 @@ function render(){
 
     list.innerHTML = ""
 
-    tasks
+    const dayTasks = tasks
         .filter(t => t.day === day)
-        .forEach(task => {
+        .sort((a,b)=> a.completed - b.completed)
 
-            const div = document.createElement("div")
-            div.className = "task"
+    dayTasks.forEach(task => {
 
-            div.innerHTML = `
-                <span>
-                    ${task.text} (moved ${task.moves})
-                </span>
+        const div = document.createElement("div")
+        div.className = "task " + (task.completed ? "completed" : "")
 
-                <div>
-                    <button onclick="editTask(${task.id})">Edit</button>
-                    <button onclick="moveTask(${task.id})">Move</button>
-                    <button onclick="removeTask(${task.id})">Remove</button>
-                </div>
-            `
+        div.innerHTML = `
+            <span>
+                ${task.text} (moved ${task.moves})
+            </span>
 
-            list.appendChild(div)
+            <div>
+                <button onclick="toggleComplete(${task.id})">
+                    ${task.completed ? "Undo" : "Done"}
+                </button>
 
-        })
+                <button onclick="moveUp(${task.id})">↑</button>
+                <button onclick="moveDown(${task.id})">↓</button>
+
+                <button onclick="editTask(${task.id})">Edit</button>
+                <button onclick="moveTask(${task.id})">Next Day</button>
+                <button onclick="removeTask(${task.id})">Remove</button>
+            </div>
+        `
+
+        list.appendChild(div)
+
+    })
 }
 
 picker.onchange = render
 
 taskInput.addEventListener("keydown", e => {
-
     if(e.key === "Enter"){
         addTask()
     }
-
 })
 
 render()
