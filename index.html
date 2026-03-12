@@ -43,15 +43,22 @@ button{
 <input id="taskInput" placeholder="Task description" autocomplete="off">
 <button onclick="addTask()">Add</button>
 
+<br><br>
+<button id="toggleIncompleteBtn" onclick="toggleIncomplete()">
+Show Only Incomplete: OFF
+</button>
+
 <h3>Tasks</h3>
 <div id="taskList"></div>
 
 <script>
 
 let tasks = JSON.parse(localStorage.getItem("tasks") || "[]")
+let showOnlyIncomplete = false
 
 const picker = document.getElementById("dayPicker")
 const taskInput = document.getElementById("taskInput")
+const toggleBtn = document.getElementById("toggleIncompleteBtn")
 
 picker.valueAsDate = new Date()
 
@@ -167,6 +174,16 @@ function moveDown(id){
     render()
 }
 
+function toggleIncomplete(){
+
+    showOnlyIncomplete = !showOnlyIncomplete
+
+    toggleBtn.textContent =
+        "Show Only Incomplete: " + (showOnlyIncomplete ? "ON" : "OFF")
+
+    render()
+}
+
 function render(){
 
     const day = picker.value
@@ -174,18 +191,24 @@ function render(){
 
     list.innerHTML = ""
 
-    const dayTasks = tasks
-        .filter(t => t.day === day)
-        .sort((a,b)=> a.completed - b.completed)
+    let dayTasks = tasks.filter(t => t.day === day)
+
+    if(showOnlyIncomplete){
+        dayTasks = dayTasks.filter(t => !t.completed)
+    }
+
+    dayTasks = dayTasks.sort((a,b)=> a.completed - b.completed)
 
     dayTasks.forEach(task => {
 
         const div = document.createElement("div")
         div.className = "task " + (task.completed ? "completed" : "")
 
+        const moveLabel = task.moves > 0 ? ` (${task.moves})` : ""
+
         div.innerHTML = `
             <span>
-                ${task.text} (moved ${task.moves})
+                ${task.text}${moveLabel}
             </span>
 
             <div>
