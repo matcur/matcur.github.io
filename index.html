@@ -60,7 +60,13 @@ const picker = document.getElementById("dayPicker")
 const taskInput = document.getElementById("taskInput")
 const toggleBtn = document.getElementById("toggleIncompleteBtn")
 
-picker.valueAsDate = new Date()
+const savedDay = localStorage.getItem("selectedDay")
+
+if(savedDay){
+    picker.value = savedDay
+}else{
+    picker.valueAsDate = new Date()
+}
 
 function save(){
     localStorage.setItem("tasks", JSON.stringify(tasks))
@@ -188,6 +194,8 @@ function render(){
 
     const day = picker.value
     const list = document.getElementById("taskList")
+
+    localStorage.setItem("selectedDay", day)
 
     list.innerHTML = ""
 
