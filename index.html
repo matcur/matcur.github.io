@@ -60,8 +60,8 @@ const picker = document.getElementById("dayPicker")
 const taskInput = document.getElementById("taskInput")
 const toggleBtn = document.getElementById("toggleIncompleteBtn")
 
+// restore last selected day
 const savedDay = localStorage.getItem("selectedDay")
-
 if(savedDay){
     picker.value = savedDay
 }else{
@@ -95,98 +95,66 @@ function addTask(){
 }
 
 function moveTask(id){
-
     const task = tasks.find(t => t.id === id)
-
     let d = new Date(task.day)
     d.setDate(d.getDate()+1)
-
     task.day = d.toISOString().slice(0,10)
     task.moves++
-
     save()
     render()
 }
 
 function removeTask(id){
-
     tasks = tasks.filter(t => t.id !== id)
-
     save()
     render()
 }
 
 function editTask(id){
-
     const task = tasks.find(t => t.id === id)
-
     const newText = prompt("Edit task:", task.text)
-
     if(newText === null) return
     if(!newText.trim()) return
-
     task.text = newText.trim()
-
     save()
     render()
 }
 
 function toggleComplete(id){
-
     const task = tasks.find(t => t.id === id)
     task.completed = !task.completed
-
     save()
     render()
 }
 
 function moveUp(id){
-
     const day = picker.value
     const dayTasks = tasks.filter(t => t.day === day)
-
     const index = dayTasks.findIndex(t => t.id === id)
-
     if(index <= 0) return
-
     const current = tasks.indexOf(dayTasks[index])
     const above = tasks.indexOf(dayTasks[index-1])
-
-    const temp = tasks[current]
-    tasks[current] = tasks[above]
-    tasks[above] = temp
-
+    [tasks[current], tasks[above]] = [tasks[above], tasks[current]]
     save()
     render()
 }
 
 function moveDown(id){
-
     const day = picker.value
     const dayTasks = tasks.filter(t => t.day === day)
-
     const index = dayTasks.findIndex(t => t.id === id)
-
     if(index === -1 || index >= dayTasks.length-1) return
-
     const current = tasks.indexOf(dayTasks[index])
     const below = tasks.indexOf(dayTasks[index+1])
-
-    const temp = tasks[current]
-    tasks[current] = tasks[below]
-    tasks[below] = temp
-
+    [tasks[current], tasks[below]] = [tasks[below], tasks[current]]
     save()
     render()
 }
 
 function toggleIncomplete(){
-
     showOnlyIncomplete = !showOnlyIncomplete
-
     toggleBtn.textContent =
         "Show Only Incomplete: " + (showOnlyIncomplete ? "ON" : "OFF")
-
     render()
 }
 
@@ -195,17 +163,21 @@ function render(){
     const day = picker.value
     const list = document.getElementById("taskList")
 
+    // remember selected day
     localStorage.setItem("selectedDay", day)
 
     list.innerHTML = ""
 
-    let dayTasks = tasks.filter(t => t.day === day)
+    let dayTasks = tasks
+        .map((t, i) => ({...t, __index: i})) // keep original index
+        .filter(t => t.day === day)
 
     if(showOnlyIncomplete){
         dayTasks = dayTasks.filter(t => !t.completed)
     }
 
-    dayTasks = dayTasks.sort((a,b)=> a.completed - b.completed)
+    // sort: incomplete first, completed last, preserve order within group
+    dayTasks = dayTasks.sort((a,b)=> a.completed - b.completed || a.__index - b.__index)
 
     dayTasks.forEach(task => {
 
