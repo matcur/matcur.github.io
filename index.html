@@ -35,7 +35,7 @@ button{
 
 <h3>Add task</h3>
 
-<input id="taskInput" placeholder="Task description">
+<input id="taskInput" placeholder="Task description" autocomplete="off">
 <button onclick="addTask()">Add</button>
 
 <h3>Tasks</h3>
@@ -46,6 +46,8 @@ button{
 let tasks = JSON.parse(localStorage.getItem("tasks") || "[]")
 
 const picker = document.getElementById("dayPicker")
+const taskInput = document.getElementById("taskInput")
+
 picker.valueAsDate = new Date()
 
 function save(){
@@ -54,7 +56,7 @@ function save(){
 
 function addTask(){
 
-    const text = document.getElementById("taskInput").value
+    const text = taskInput.value.trim()
     const day = picker.value
 
     if(!text) return
@@ -66,7 +68,8 @@ function addTask(){
         moves:0
     })
 
-    document.getElementById("taskInput").value = ""
+    taskInput.value = ""
+    taskInput.focus()
 
     save()
     render()
@@ -103,7 +106,7 @@ function editTask(id){
     if(newText === null) return
     if(!newText.trim()) return
 
-    task.text = newText
+    task.text = newText.trim()
 
     save()
     render()
@@ -121,7 +124,7 @@ function render(){
         .forEach(task => {
 
             const div = document.createElement("div")
-            div.className="task"
+            div.className = "task"
 
             div.innerHTML = `
                 <span>
@@ -141,6 +144,14 @@ function render(){
 }
 
 picker.onchange = render
+
+taskInput.addEventListener("keydown", e => {
+
+    if(e.key === "Enter"){
+        addTask()
+    }
+
+})
 
 render()
 
